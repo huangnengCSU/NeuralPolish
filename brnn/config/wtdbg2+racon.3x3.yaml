@@ -1,0 +1,28 @@
+Depth: 20
+Seed: 0
+Vocab_size: 1367
+
+model:
+    Embed_size: 16
+    Rnn1_hid: 32
+    Rnn1_nlayer: 3
+    Rnn1_dropout: 0.5
+
+    Hid_dim: 128
+
+    Rnn2_hid: 256
+    Rnn2_nlayer: 3
+    Rnn2_dropout: 0.5
+
+    Out_dim: 1367
+
+train:
+    Show_step: 100
+    Clip: 1
+    Epochs: 60
+    Batch_size: 128
+    exp_name: "ctc.ecoli_yeast_chr21.wtdbg2+racon.layer3x3.model"
+    visualizer_dir: "visualizer_log"
+    save_model: "test"
+optim:
+    lr: 0.001

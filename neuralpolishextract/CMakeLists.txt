@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.0)
+project(extract)
+set(CMAKE_CXX_STANDARD 11)
+add_executable(extract extract.cpp load_pileup.cpp threads.cpp threads.h)
+target_link_libraries(extract pthread)
