@@ -101,7 +101,7 @@ cd ../brnn
 if [ ${gpu_id} -ne -1 ]; then
     CUDA_VISIBLE_DEVICES=${gpu_id} python ctc_polish.py -config ${config_file} -model_path ${model_file} -data_path ${output_dir} -prepolished_path ${output_dir}/assembly_racon.fasta -output ${output_dir}/polished.fasta
 else
-    python ctc_polish.py -config ${config_file} -model_path ${model_file} -data_path ${output_dir} -prepolished_path ${output_dir}/assembly_racon.fasta -output ${output_dir}/polished.fasta
+    python ctc_polish.py -config ${config_file} -model_path ${model_file} -data_path ${output_dir} -prepolished_path ${output_dir}/assembly_racon.fasta -output ${output_dir}/polished.fasta --no_cuda
 fi
 cd ..
 

@@ -1,8 +1,8 @@
 """
  * @Author: huangneng
  * @Date: 2020-01-17 16:12:47
- * @Last Modified by:   huangneng
- * @Last Modified time: 2020-01-17 16:12:47
+ * @Last Modified by:   huang neng
+ * @Last Modified time: 2021-06-09 10:26:49
  """
 
 import torch
@@ -456,7 +456,7 @@ def read_assembly(assembly_path):
 
 def polish(model, model_path, data_path, racon_assembly_path, output_file, opt):
     assembly_contigs = read_assembly(racon_assembly_path)
-    model = load_model(model, model_path).to(opt.device)
+    model = load_model(model, model_path, opt).to(opt.device)
     model.eval()
     decoder = GreedyDecoder(kmer_decoder, blank_index=kmer_decoder_size)
 
@@ -590,8 +590,12 @@ def save_model(model, optimizer, config, save_name, epoch, step):
     torch.save(checkpoint, save_name)
 
 
-def load_model(model, model_path):
-    checkpoint = torch.load(model_path)
+def load_model(model, model_path, opt):
+    if opt.device==torch.device('cpu'):
+        device = 'cpu'
+    else:
+        device = 'cuda'
+    checkpoint = torch.load(model_path, map_location=device)
     model.load_state_dict(checkpoint["model"])
     return model
 
