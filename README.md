@@ -9,6 +9,7 @@ Using this method requires the user to install several tools:
 - [minimap2](https://github.com/lh3/minimap2)
 - [samtools](https://github.com/samtools/samtools)
 - [Racon](https://github.com/isovic/racon)
+- [GCC>=7.3](http://gcc.gnu.org/releases.html)
 
 dependencies:
 ```
